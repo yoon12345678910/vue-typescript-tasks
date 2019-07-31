@@ -1,29 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <task-list />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import TaskList from './components/TaskList.vue';
+import BootstrapVue from 'bootstrap-vue';
+
+Vue.use(BootstrapVue);
 
 @Component({
   components: {
-    HelloWorld,
+    'task-list': TaskList,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+body {
+  background-color: #abc;
 }
+*, h1, button {
+  font-family: 'Nunito', sans-serif;
+}
+ol, ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+
 </style>
